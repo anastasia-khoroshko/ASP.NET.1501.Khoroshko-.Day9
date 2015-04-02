@@ -125,9 +125,13 @@ namespace Task1UI
             stringTreeD.Add("apple", null);
             stringTreeD.Add("root", null);
             stringTreeD.Add("node",null);
-            //BinaryTree<Point> points = new BinaryTree<Point>();
-            //points.Add(new Point(1, 1), null);
-            //points.Add(new Point(2, 2), null);
+            try
+            {
+                BinaryTree<Point> points = new BinaryTree<Point>();
+                points.Add(new Point(1, 1), null);
+                points.Add(new Point(2, 2), null);
+            }
+            catch (ArgumentException ex) { }
         }
     }
 }

@@ -57,16 +57,23 @@ namespace Task1
                 root = node;
             else
             {
-                Node<TItem> current = root, parent = null;
-                while (current != null)
+                try
                 {
-                    parent = current;
-                    if (comparer.Compare(elem, current.Value) > 0) current = current.Right;
-                    else current = current.Left;
-                }
+                    Node<TItem> current = root, parent = null;
+                    while (current != null)
+                    {
+                        parent = current;
+                        if (comparer.Compare(elem, current.Value) > 0) current = current.Right;
+                        else current = current.Left;
+                    }
 
-                if (comparer.Compare(elem, parent.Value) > 0) parent.Right = node;
-                else parent.Left = node;
+                    if (comparer.Compare(elem, parent.Value) > 0) parent.Right = node;
+                    else parent.Left = node;
+                }
+                catch(Exception ex)
+                {
+                    throw new ArgumentException("Comparer for this type don't exist!");
+                }
             }
         }
 
